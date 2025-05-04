@@ -1,0 +1,31 @@
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: weather_forecast
+        description: "Raw weather forecast data loaded from S3"
+        columns:
+          - name: time
+            description: "Date and time of the forecast"
+          - name: updated_time
+            description: "Date and time of the last update, truncated to hour, kept as string"
+          - name: updated_date
+            description: "Date of the last update"
+          - name: updated_hour
+            description: "Hour of the last update"
+          - name: location
+            description: "Location of the forecast"
+          - name: precipitation
+            description: "Precipitation in mm"
+          - name: air_pressure_sea_level
+            description: "Air pressure at sea level"
+          - name: air_temperature
+            description: "Air temperature"
+          - name: cloud_area_fraction
+            description: "Fraction of cloud cover"
+          - name: relative_humidity
+            description: "Relative humidity of the air"
+          - name: wind_from_direction
+            description: "Wind direction"
+          - name: wind_speed
+            description: "Wind speed"

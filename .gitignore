@@ -1,0 +1,15 @@
+.git
+.env
+.DS_Store
+airflow_settings.yaml
+__pycache__/
+astro
+.venv
+airflow-webserver.pid
+webserver_config.py
+airflow.cfg
+airflow.db
+dbt_airflow_snowflake/target/
+dbt_airflow_snowflake/dbt_packages/
+dbt_airflow_snowflake/logs/
+

@@ -1,0 +1,222 @@
+[0m15:55:26.657497 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6D7CB91F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6D78233B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6D7CBB830>]}
+
+
+============================== 15:55:26.669163 | 7d785880-74bd-467c-8673-eb57cfbc308d ==============================
+[0m15:55:26.669163 [info ] [MainThread]: Running with dbt=1.9.4
+[0m15:55:26.670712 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt init', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m15:55:42.787950 [debug] [MainThread]: Starter project path: C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\include\starter_project
+[0m15:55:42.825254 [info ] [MainThread]: 
+Your new dbt project "dbt_snowflake" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m15:55:42.826353 [info ] [MainThread]: Setting up your profile.
+[0m15:56:03.378379 [error] [MainThread]: Encountered an error:
+
+[0m15:56:03.383667 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\cli\requires.py", line 153, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\cli\requires.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\cli\main.py", line 477, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m15:56:03.386346 [debug] [MainThread]: Command `dbt init` failed at 15:56:03.386346 after 36.93 seconds
+[0m15:56:03.386346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6D71E79E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6E87271A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D6E78BFF20>]}
+[0m15:56:03.387797 [debug] [MainThread]: Flushing usage events
+[0m15:56:04.467979 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:05:39.937553 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001837AA2A990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001837AA2A0F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001837AA29DC0>]}
+
+
+============================== 20:05:39.946589 | 4bfd4b54-0d88-4364-ae82-f42df8db950a ==============================
+[0m20:05:39.946589 [info ] [MainThread]: Running with dbt=1.9.4
+[0m20:05:39.947603 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt init', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m20:05:54.294900 [debug] [MainThread]: Starter project path: C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\include\starter_project
+[0m20:05:54.373799 [info ] [MainThread]: 
+Your new dbt project "dbt_snowflake" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:05:54.376059 [info ] [MainThread]: Setting up your profile.
+[0m20:35:07.814669 [error] [MainThread]: Encountered an error:
+
+[0m20:35:08.192920 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\cli\requires.py", line 153, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\cli\requires.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\cli\main.py", line 477, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m20:35:08.237073 [debug] [MainThread]: Command `dbt init` failed at 20:35:08.229918 after 1768.68 seconds
+[0m20:35:08.260381 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001837A651A00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018374A11C40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001830B4C6270>]}
+[0m20:35:08.275071 [debug] [MainThread]: Flushing usage events
+[0m20:35:09.253741 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:14:45.526084 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000205E41F2570>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000205E36E5BE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000205E1D1A150>]}
+
+
+============================== 12:14:45.538298 | 538d1204-1415-48bc-8a9b-491660e1774e ==============================
+[0m12:14:45.538298 [info ] [MainThread]: Running with dbt=1.9.4
+[0m12:14:45.539338 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt init dbt_snowflake', 'send_anonymous_usage_stats': 'True'}
+[0m12:14:45.603760 [debug] [MainThread]: Starter project path: C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\include\starter_project
+[0m12:14:45.649908 [info ] [MainThread]: 
+Your new dbt project "dbt_snowflake" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m12:14:45.650901 [info ] [MainThread]: Setting up your profile.
+[0m12:21:18.745819 [info ] [MainThread]: Profile dbt_snowflake written to C:\Users\vinic\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m12:21:18.757889 [debug] [MainThread]: Command `dbt init` succeeded at 12:21:18.756894 after 393.37 seconds
+[0m12:21:18.761888 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000205E4B7FB90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000205F5BD7F20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000205F58A42C0>]}
+[0m12:21:18.764887 [debug] [MainThread]: Flushing usage events
+[0m12:21:19.495942 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:21:32.902956 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CDF88E0680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CDF8631160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CDF8CE85C0>]}
+
+
+============================== 12:21:32.909701 | 67b0444a-5f7c-4c15-8858-8602aedc89b8 ==============================
+[0m12:21:32.909701 [info ] [MainThread]: Running with dbt=1.9.4
+[0m12:21:32.910701 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m12:21:32.958824 [info ] [MainThread]: dbt version: 1.9.4
+[0m12:21:32.959821 [info ] [MainThread]: python version: 3.12.7
+[0m12:21:32.959821 [info ] [MainThread]: python path: C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\python.exe
+[0m12:21:32.961155 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m12:21:34.840454 [info ] [MainThread]: Using profiles dir at C:\Users\vinic\.dbt
+[0m12:21:34.840454 [info ] [MainThread]: Using profiles.yml file at C:\Users\vinic\.dbt\profiles.yml
+[0m12:21:34.841523 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\vinic\ciencia_de_dados\Projects\pipeline_project\dbt_project.yml
+[0m12:21:34.843588 [info ] [MainThread]: adapter type: snowflake
+[0m12:21:34.843588 [info ] [MainThread]: adapter version: 1.9.2
+[0m12:21:34.844592 [info ] [MainThread]: Configuration:
+[0m12:21:34.845589 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:21:34.845589 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m12:21:34.846752 [info ] [MainThread]: Required dependencies:
+[0m12:21:34.846752 [debug] [MainThread]: Executing "git --help"
+[0m12:21:34.885774 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:21:34.886281 [debug] [MainThread]: STDERR: "b''"
+[0m12:21:34.887291 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:21:34.887291 [info ] [MainThread]: Connection:
+[0m12:21:34.888334 [info ] [MainThread]:   account: https://imb82841.snowflakecomputing.com
+[0m12:21:34.889302 [info ] [MainThread]:   user: viniciusfrantz
+[0m12:21:34.889302 [info ] [MainThread]:   database: dbt_airflow_db
+[0m12:21:34.890302 [info ] [MainThread]:   warehouse: dbt_airflow_wh
+[0m12:21:34.890302 [info ] [MainThread]:   role: dbt_airflow_role
+[0m12:21:34.891672 [info ] [MainThread]:   schema: dbt_schema
+[0m12:21:34.891672 [info ] [MainThread]:   authenticator: None
+[0m12:21:34.892927 [info ] [MainThread]:   oauth_client_id: None
+[0m12:21:34.893953 [info ] [MainThread]:   query_tag: None
+[0m12:21:34.893953 [info ] [MainThread]:   client_session_keep_alive: False
+[0m12:21:34.895465 [info ] [MainThread]:   host: None
+[0m12:21:34.895465 [info ] [MainThread]:   port: None
+[0m12:21:34.896919 [info ] [MainThread]:   proxy_host: None
+[0m12:21:34.898053 [info ] [MainThread]:   proxy_port: None
+[0m12:21:34.898053 [info ] [MainThread]:   protocol: None
+[0m12:21:34.899490 [info ] [MainThread]:   connect_retries: 1
+[0m12:21:34.899490 [info ] [MainThread]:   connect_timeout: None
+[0m12:21:34.900616 [info ] [MainThread]:   retry_on_database_errors: False
+[0m12:21:34.901617 [info ] [MainThread]:   retry_all: False
+[0m12:21:34.901617 [info ] [MainThread]:   insecure_mode: False
+[0m12:21:34.902617 [info ] [MainThread]:   reuse_connections: True
+[0m12:21:34.903618 [info ] [MainThread]: Registered adapter: snowflake=1.9.2
+[0m12:21:35.879857 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m12:21:39.377993 [debug] [MainThread]: Using snowflake connection "debug"
+[0m12:21:39.379206 [debug] [MainThread]: On debug: select 1 as id
+[0m12:21:39.379206 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:21:50.210569 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m12:21:50.211774 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m12:21:50.211774 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m12:21:50.212939 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m12:21:50.214399 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\vinic\ciencia_de_dados\Projects\pipeline_project\dbt_project.yml> not found
+
+[0m12:21:50.215579 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001: Could not connect to Snowflake backend after 2 attempt(s).Aborting
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m12:21:50.216721 [debug] [MainThread]: Command `dbt debug` failed at 12:21:50.216721 after 17.50 seconds
+[0m12:21:50.217832 [debug] [MainThread]: Connection 'debug' was left open.
+[0m12:21:50.217832 [debug] [MainThread]: On debug: No close available on handle
+[0m12:21:50.219008 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CDF7AF46E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CD8B161F40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CD8B12BF50>]}
+[0m12:21:50.219008 [debug] [MainThread]: Flushing usage events
+[0m12:21:51.030312 [debug] [MainThread]: An error was encountered while trying to flush usage events
