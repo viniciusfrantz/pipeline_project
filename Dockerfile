@@ -5,3 +5,8 @@ RUN python -m venv dbt_venv && \
     source dbt_venv/bin/activate && \
     pip install --no-cache-dir dbt-snowflake && \
     deactivate
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY .dbt /home/astro/.dbt

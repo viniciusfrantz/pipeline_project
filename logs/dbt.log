@@ -220,3 +220,82 @@ https://docs.getdbt.com/docs/configure-your-profile
 [0m12:21:50.219008 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CDF7AF46E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CD8B161F40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002CD8B12BF50>]}
 [0m12:21:50.219008 [debug] [MainThread]: Flushing usage events
 [0m12:21:51.030312 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:54:32.030990 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022214AABCB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022215129910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022214F58A70>]}
+
+
+============================== 19:54:32.040362 | 60994c11-c69a-48e7-a1b4-2272cfdb04ea ==============================
+[0m19:54:32.040362 [info ] [MainThread]: Running with dbt=1.9.4
+[0m19:54:32.041366 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m19:54:32.041366 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\vinic\ciencia_de_dados\Projects\pipeline_project\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m19:54:32.042365 [debug] [MainThread]: Command `dbt run` failed at 19:54:32.042365 after 0.24 seconds
+[0m19:54:32.042365 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022214AABCB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022215638590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022215AA5580>]}
+[0m19:54:32.043869 [debug] [MainThread]: Flushing usage events
+[0m19:54:32.838808 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:52:36.475869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A3B801DCD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A3B88C6AE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A3B869FE30>]}
+
+
+============================== 22:52:36.485110 | 65df2282-e4cf-4de5-81b2-71d399de6fb5 ==============================
+[0m22:52:36.485110 [info ] [MainThread]: Running with dbt=1.9.4
+[0m22:52:36.486109 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m22:52:36.536707 [info ] [MainThread]: dbt version: 1.9.4
+[0m22:52:36.537707 [info ] [MainThread]: python version: 3.12.7
+[0m22:52:36.538706 [info ] [MainThread]: python path: C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\python.exe
+[0m22:52:36.538706 [info ] [MainThread]: os info: Windows-11-10.0.26100-SP0
+[0m22:52:41.729244 [info ] [MainThread]: Using profiles dir at C:\Users\vinic\.dbt
+[0m22:52:41.730865 [info ] [MainThread]: Using profiles.yml file at C:\Users\vinic\.dbt\profiles.yml
+[0m22:52:41.731890 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\vinic\ciencia_de_dados\Projects\pipeline_project\dbt_project.yml
+[0m22:52:41.733904 [info ] [MainThread]: adapter type: snowflake
+[0m22:52:41.733904 [info ] [MainThread]: adapter version: 1.9.2
+[0m22:52:41.734909 [info ] [MainThread]: Configuration:
+[0m22:52:41.735911 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m22:52:41.737906 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m22:52:41.739087 [info ] [MainThread]: Required dependencies:
+[0m22:52:41.740088 [debug] [MainThread]: Executing "git --help"
+[0m22:52:41.785381 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m22:52:41.786377 [debug] [MainThread]: STDERR: "b''"
+[0m22:52:41.787385 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m22:52:41.789380 [info ] [MainThread]: Connection:
+[0m22:52:41.790395 [info ] [MainThread]:   account: imb82841
+[0m22:52:41.790395 [info ] [MainThread]:   user: viniciusfrantz
+[0m22:52:41.791829 [info ] [MainThread]:   database: dbt_airflow_db
+[0m22:52:41.793335 [info ] [MainThread]:   warehouse: dbt_airflow_wh
+[0m22:52:41.794424 [info ] [MainThread]:   role: dbt_airflow_role
+[0m22:52:41.795930 [info ] [MainThread]:   schema: dbt_schema
+[0m22:52:41.797441 [info ] [MainThread]:   authenticator: None
+[0m22:52:41.799985 [info ] [MainThread]:   oauth_client_id: None
+[0m22:52:41.800983 [info ] [MainThread]:   query_tag: None
+[0m22:52:41.800983 [info ] [MainThread]:   client_session_keep_alive: False
+[0m22:52:41.802289 [info ] [MainThread]:   host: None
+[0m22:52:41.804395 [info ] [MainThread]:   port: None
+[0m22:52:41.805380 [info ] [MainThread]:   proxy_host: None
+[0m22:52:41.807379 [info ] [MainThread]:   proxy_port: None
+[0m22:52:41.808421 [info ] [MainThread]:   protocol: None
+[0m22:52:41.809425 [info ] [MainThread]:   connect_retries: 1
+[0m22:52:41.810194 [info ] [MainThread]:   connect_timeout: None
+[0m22:52:41.810702 [info ] [MainThread]:   retry_on_database_errors: False
+[0m22:52:41.811715 [info ] [MainThread]:   retry_all: False
+[0m22:52:41.813181 [info ] [MainThread]:   insecure_mode: False
+[0m22:52:41.813711 [info ] [MainThread]:   reuse_connections: True
+[0m22:52:41.814967 [info ] [MainThread]: Registered adapter: snowflake=1.9.2
+[0m22:52:42.596939 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m22:52:46.117603 [debug] [MainThread]: Using snowflake connection "debug"
+[0m22:52:46.117603 [debug] [MainThread]: On debug: select 1 as id
+[0m22:52:46.118605 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:52:48.849057 [debug] [MainThread]: SQL status: SUCCESS 1 in 2.731 seconds
+[0m22:52:48.851015 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m22:52:48.852009 [info ] [MainThread]: [31m1 check failed:[0m
+[0m22:52:48.853081 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\vinic\ciencia_de_dados\Projects\pipeline_project\dbt_project.yml> not found
+
+[0m22:52:48.854081 [debug] [MainThread]: Command `dbt debug` failed at 22:52:48.854081 after 12.62 seconds
+[0m22:52:48.855119 [debug] [MainThread]: Connection 'debug' was left open.
+[0m22:52:48.856185 [debug] [MainThread]: On debug: Close
+[0m22:52:49.348061 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A3B801DCD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A3B870E300>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A3B8D185C0>]}
+[0m22:52:49.349845 [debug] [MainThread]: Flushing usage events
+[0m22:52:50.077209 [debug] [MainThread]: An error was encountered while trying to flush usage events
