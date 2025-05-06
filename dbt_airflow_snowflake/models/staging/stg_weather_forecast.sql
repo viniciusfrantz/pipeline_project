@@ -15,7 +15,7 @@ final as (
     select 
         forecast_time,
         updated_hour,
-        cast(forecast_time as date) as forecast_day,
+        forecast_time::date as forecast_day,
         updated_date,
         location,
         precipitation
