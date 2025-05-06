@@ -1,4 +1,4 @@
-default:
+default: #profile_name
   target: dev
   outputs:
     dev:

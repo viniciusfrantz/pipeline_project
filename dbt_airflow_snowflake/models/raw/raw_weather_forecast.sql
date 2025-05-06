@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='raw') }}
 
 SELECT
-    $1::TIMESTAMP           AS time,
+    $1::TIMESTAMP           AS forecast_time,
     $2::VARCHAR(13)         AS updated_time, 
     $3::DATE                AS updated_date,
     $4::INTEGER             AS updated_hour,
