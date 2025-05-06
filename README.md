@@ -1,5 +1,5 @@
 # Weather Forecast Data Pipeline (Snowflake, dbt, Airflow)
-Hi! I'm building a weather forecast data pipeline using modern tools like dbt with Apache Airflow to orchestrate data transformations in Snowflake. I utilized Astronomer Cosmos to run dbt models within Airflow DAGs.
+Hi! I'm building a weather forecast data pipeline using modern tools like **dbt** with **Apache Airflow** to orchestrate data transformations in **Snowflake**. I utilized Astronomer Cosmos to run dbt models within Airflow DAGs.
 
 This project automates the orchestration, transformation, and analysis of weather forecast data with the goal of evaluating the accuracy of weather predictions by comparing them to actual data from a local weather station.
 
@@ -37,7 +37,7 @@ Visual Studio Code: The development environment used for writing and managing pr
 ```
 
 ### Pipeline Workflow
-- **Extract**: Raw weather forecast data is collected from an AWS S3 bucket.
+- **Extract**: R**Extract**: New weather forecast data is fetched daily via API and saved to an AWS S3 bucket, orchestrated by Airflow.
 - **Load** (Airflow with Astronomer Cosmos): Airflow automates the process of loading the raw data from S3 into Snowflake.
 - **Transform** (dbt): dbt cleans and transforms the raw data into structured tables in Snowflake.
   - **Staging**: The data is cleaned and loaded into the staging table `stg_weather_forecast`.
