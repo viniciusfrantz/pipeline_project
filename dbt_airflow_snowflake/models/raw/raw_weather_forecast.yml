@@ -2,7 +2,7 @@ sources:
   - name: raw
     schema: raw
     tables:
-      - name: weather_forecast
+      - name: raw_weather_forecast
         description: "Raw weather forecast data loaded from S3"
         columns:
           - name: time

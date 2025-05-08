@@ -1,8 +1,7 @@
-import pandas as pd
-import requests
-from io import StringIO
-
 def get_weather_data(s3_hook, bucket, object_key):
+    import pandas as pd
+    import requests
+    from io import StringIO
     location_0 = 'Granja_Santa_Catarina'
     locations = {
         location_0: {'lat': -31.16, 'lon': -54.85},

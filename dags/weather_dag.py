@@ -22,11 +22,11 @@ default_args = {
 with DAG(
     'weather_dag',
     default_args=default_args,
-    schedule = '@daily',
+    schedule = '0 11 * * *',
     catchup=False,
     tags=['weather', 's3'],
     description="get weather data and save in S3 bucket, then run dbt models"
-) as dag:
+    ) as dag:
 
 
     def load_weather_data():
@@ -42,6 +42,7 @@ with DAG(
         retries=2,
         retry_delay=timedelta(seconds=10)
     )
+
 
     # Defined inside the DAG to avoid import timeout issues during DAG parsing.
     profile_config_dbt = ProfileConfig(
