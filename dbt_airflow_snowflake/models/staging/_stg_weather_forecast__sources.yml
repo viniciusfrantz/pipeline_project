@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_weather_forecast
+  - name: stg_weather_forecast__gsc
     description: "Staging model for raw weather forecast data, converting timezone and filtering for the specified location."
     columns:
       - name: forecast_time

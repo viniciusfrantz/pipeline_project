@@ -41,5 +41,27 @@ models:
     raw:
       +materialized: table
       snowflake_warehouse: dbt_airflow_wh
+seeds:
+  dbt_airflow_snowflake:  #project_name
+    +schema: estacao_gsc #name_of_schema_created
+    dados_estacao_gsc:  # csv_file_name(seed folder)
+      +delimiter: ","
+      +quote_columns: false
+      +column_types:
+        estacao: text
+        data: date
+        precipitacao: float
+        temp_media: float
+        temp_max: float
+        temp_min: float
+        pressao_barometrica: float
+        umidade_rel: float
+        evapotranspiracao: float
+        rad_solar: float
+        uv: float
+        vel_med_vento: float
+        vel_max_vento: float
+        direcao_do_vento: text
+        # adicione mais conforme desejar
 
 

@@ -314,3 +314,33 @@ Runtime Error
 [0m12:50:26.538591 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E8B570A40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E8B571520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E8B6555E0>]}
 [0m12:50:26.539661 [debug] [MainThread]: Flushing usage events
 [0m12:50:27.256659 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:56:33.917274 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3EDE8A090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3F032FFE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3F032FE00>]}
+
+
+============================== 15:56:33.929607 | 58d998b6-8da2-461f-b87c-d439780d35ff ==============================
+[0m15:56:33.929607 [info ] [MainThread]: Running with dbt=1.9.4
+[0m15:56:33.930648 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt seed', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m15:56:33.932144 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\vinic\ciencia_de_dados\Projects\pipeline_project\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m15:56:33.934421 [debug] [MainThread]: Command `dbt seed` failed at 15:56:33.933423 after 0.24 seconds
+[0m15:56:33.934421 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3F0F020C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3EDE1A300>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E3EFFC9A00>]}
+[0m15:56:33.935420 [debug] [MainThread]: Flushing usage events
+[0m15:56:34.703364 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:58:23.286486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024E393E3500>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024E394439E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024E393E03B0>]}
+
+
+============================== 15:58:23.290968 | 00f8bfaf-20b5-43e7-a8cd-ca47753572aa ==============================
+[0m15:58:23.290968 [info ] [MainThread]: Running with dbt=1.9.4
+[0m15:58:23.291992 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt seed', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m15:58:23.292991 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\vinic\ciencia_de_dados\Projects\pipeline_project\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m15:58:23.293991 [debug] [MainThread]: Command `dbt seed` failed at 15:58:23.293991 after 0.15 seconds
+[0m15:58:23.294989 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024E396F90A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024E395F44A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024E394439E0>]}
+[0m15:58:23.294989 [debug] [MainThread]: Flushing usage events
+[0m15:58:23.984991 [debug] [MainThread]: An error was encountered while trying to flush usage events

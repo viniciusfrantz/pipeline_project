@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='marts') }}
 
 with forecast as (
-    select * from {{ ref('stg_weather_forecast') }}
+    select * from {{ ref('stg_weather_forecast__gsc') }}
 ),
 
 agg_1 as (
