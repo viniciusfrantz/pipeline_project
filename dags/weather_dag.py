@@ -7,7 +7,7 @@ from cosmos.profiles import SnowflakeUserPasswordProfileMapping
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook 
 
 from include.constants import dbt_snowflake_project_path, venv_execution_config
-from include.weather_utils import get_weather_data
+from include.weather_utils import get_weather_data, normalize_csv
 
 
 default_args = {
@@ -44,6 +44,15 @@ with DAG(
     )
 
 
+    def normalize_seed_file():
+        normalize_csv('dados_estacao_gsc.csv')
+
+    normalize_csv_task = PythonOperator(
+        task_id='normalize_weather_station_seed_file',
+        python_callable=normalize_seed_file,
+        )
+
+
     # Defined inside the DAG to avoid import timeout issues during DAG parsing.
     profile_config_dbt = ProfileConfig(
     profile_name="default",
@@ -67,4 +76,4 @@ with DAG(
     )
 
 
-    get_weather_data_task >> dbt_task_group
+    get_weather_data_task >> normalize_csv_task >> dbt_task_group

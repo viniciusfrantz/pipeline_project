@@ -45,7 +45,7 @@ seeds:
   dbt_airflow_snowflake:  #project_name
     +schema: estacao_gsc #name_of_schema_created
     dados_estacao_gsc:  # csv_file_name(seed folder)
-      +delimiter: ","
+      +delimiter: ";"
       +quote_columns: false
       +column_types:
         estacao: text
