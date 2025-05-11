@@ -21,16 +21,33 @@ ___
 │   └── weather_dag.py
 ├── dbt_airflow_snowflake/
 │   ├── dbt_project.yml
-│   ├── models/
-│   │   ├── raw/
-│   │   │   └── raw_weather_forecast.sql
-│   │   ├── staging/
-│   │   │   └── stg_weather_forecast.sql
-│   │   └── marts/
-│   │       └── agg_precipitation_forecast.sql
-├── include/
-│   ├── constants.py
-│   └── weather_utils.py
+|   +---models
+|   |   |   __sources.yml
+|   |   |   
+|   |   +---intermediate
+|   |   |       int__gsc.sql
+|   |   |       
+|   |   +---marts
+|   |   |       agg_precipitation_forecast.yml
+|   |   |       results_forecast.sql
+|   |   |       
+|   |   \---staging
+|   |       +---weather_forecast
+|   |       |       stg_weather_data.yml
+|   |       |       stg_weather_data__gsc.sql
+|   |       |       
+|   |       \---weather_station
+|   |               stg_station__real.sql
+|   |               _station__real.yml
+|   |               
+|   +---seeds
+|   |       .gitkeep
+|   |       dados_estacao_gsc.csv
++---include
+|   |   constants.py
+|   |   copy_into_stg_weather.sql
+|   |   profiles.py
+|   |   weather_utils.py
 ├── plugins/
 ├── tests/
 ├── Dockerfile
