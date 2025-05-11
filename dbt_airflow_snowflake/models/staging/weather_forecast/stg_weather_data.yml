@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stage_weather_data_gsc  # Nome do modelo
+    description: "Weather forecast data for Granja Santa Catarina with timezone conversion"
+    columns:
+      - name: forecast_time
+        description: "Forecast time adjusted to 'America/Sao_Paulo' timezone"
+        data_type: TIMESTAMP
+        tests:
+          - not_null
+      - name: forecast_date
+        description: "Date part of the forecast time in 'America/Sao_Paulo' timezone"
+        data_type: DATE
+      - name: updated_date
+        description: "Date when data was last updated"
+        data_type: DATE
+      - name: updated_hour
+        description: "Hour when data was last updated"
+        data_type: INTEGER
+      - name: location
+        description: "Location of the weather forecast"
+        data_type: VARCHAR(150)
+      - name: precipitation
+        description: "Forecasted precipitation (mm)"
+        data_type: FLOAT
+      - name: air_temperature
+        description: "Forecasted air temperature (°C)"
+        data_type: FLOAT
+      - name: forecast_day
+        description: "The day of the forecast from 'forecast_time'"
+        data_type: TIMESTAMP

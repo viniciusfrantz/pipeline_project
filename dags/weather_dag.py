@@ -1,10 +1,11 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
+from airflow.providers.amazon.aws.hooks.s3 import S3Hook 
 
 from datetime import datetime, timedelta
 from cosmos import DbtTaskGroup, ProfileConfig, ExecutionConfig, ProjectConfig
 from cosmos.profiles import SnowflakeUserPasswordProfileMapping
-from airflow.providers.amazon.aws.hooks.s3 import S3Hook 
 
 from include.constants import dbt_snowflake_project_path, venv_execution_config
 from include.weather_utils import get_weather_data, normalize_csv
@@ -48,10 +49,16 @@ with DAG(
         normalize_csv('dados_estacao_gsc.csv')
 
     normalize_csv_task = PythonOperator(
-        task_id='normalize_weather_station_seed_file',
+        task_id='normalize_ws_seed_file',
         python_callable=normalize_seed_file,
         )
 
+     
+    copy_into_task = SnowflakeOperator(
+        task_id='copy_into_staging',
+        sql=open('/usr/local/airflow/include/copy_into_stg_weather.sql').read(),
+        snowflake_conn_id='snowflake_conn'
+    )
 
     # Defined inside the DAG to avoid import timeout issues during DAG parsing.
     profile_config_dbt = ProfileConfig(
@@ -76,4 +83,5 @@ with DAG(
     )
 
 
-    get_weather_data_task >> normalize_csv_task >> dbt_task_group
+    get_weather_data_task >> [normalize_csv_task, copy_into_task] >> dbt_task_group
+    

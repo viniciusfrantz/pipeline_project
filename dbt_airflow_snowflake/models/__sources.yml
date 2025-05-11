@@ -1,11 +1,13 @@
 version: 2
 
 sources:
-  - name: raw
-    schema: raw
+  - name: weather_forecast
+    database: dbt_airflow_db
+    schema: DBT_SCHEMA
+    description: "Raw weather forecast data from S3 stage"
     tables:
-      - name: raw_weather_forecast
-        description: "Raw weather forecast data loaded from S3"
+      - name: stg_weather_data
+        description: "Weather forecast data loaded from S3"
         columns:
           - name: time
             description: "Date and time of the forecast"

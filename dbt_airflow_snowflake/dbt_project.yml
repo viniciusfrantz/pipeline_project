@@ -35,15 +35,21 @@ models:
     staging:
       +materialized: view
       snowflake_warehouse: dbt_airflow_wh
+    intermediate:
+      +materialized: table
+      snowflake_warehouse: dbt_airflow_wh
     marts:
       +materialized: table
       snowflake_warehouse: dbt_airflow_wh
-    raw:
-      +materialized: table
-      snowflake_warehouse: dbt_airflow_wh
+
+
+
+#staging on snowflake
+vars:
+  weather_forecast_stage_path: "@DBT_AIRFLOW_DB.DBT_SCHEMA.my_s3_stage"
+
 seeds:
   dbt_airflow_snowflake:  #project_name
-    +schema: estacao_gsc #name_of_schema_created
     dados_estacao_gsc:  # csv_file_name(seed folder)
       +delimiter: ";"
       +quote_columns: false
