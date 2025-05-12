@@ -51,6 +51,7 @@ vars:
 seeds:
   dbt_airflow_snowflake:  #project_name
     dados_estacao_gsc:  # csv_file_name(seed folder)
+      +name: weather_station_gsc
       +delimiter: ";"
       +quote_columns: false
       +column_types:
