@@ -83,5 +83,18 @@ with DAG(
     )
 
 
-    get_weather_data_task >> [normalize_csv_task, copy_into_task] >> dbt_task_group
+    export_results_to_s3_task = SnowflakeOperator(
+    task_id='export_results_forecast_to_s3',
+    sql="""
+        COPY INTO @my_s3_stage/results_forecast_export
+        FROM DBT_AIRFLOW_DB.DBT_SCHEMA.RESULTS_FORECAST
+        FILE_FORMAT = (TYPE = 'PARQUET')
+        HEADER = TRUE
+        OVERWRITE = TRUE;
+    """,
+    snowflake_conn_id='snowflake_conn',
+)
+
+
+    get_weather_data_task >> [normalize_csv_task, copy_into_task] >> dbt_task_group >> export_results_to_s3_task
     
