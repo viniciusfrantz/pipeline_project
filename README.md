@@ -55,6 +55,11 @@ ___
 └── README.md
 ```
 ___
+### DAG Overview:
+
+![Weather DAG](./dag_weather_airflow_astro.jpg)
+
+___
 ### Pipeline Workflow:
 - **Extract**: New weather forecast data is fetched daily via API and saved to an AWS S3 bucket, orchestrated by Airflow.
 - **Load** (Airflow with Astronomer Cosmos): Airflow automates the process of loading the raw data from S3 into Snowflake.
