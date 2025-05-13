@@ -78,6 +78,13 @@ ___
    - `results_forecast.sql`: Joins forecasted precipitation with actual recorded data for comparison.
 - **Test** (dbt): I applied Basic dbt tests to ensure data quality and identify issues early.
 - **Analyze**: The processed data is analyzed by comparing forecasted precipitation with actual measurements to evaluate prediction accuracy.
+____
+
+## 🌦️ **Live App**: [Weather Forecast Accuracy - Granja Santa Catarina](https://weathergranjasantacatarina.streamlit.app/)
+
+This Streamlit app presents insights into the accuracy of weather forecast models, focusing on agricultural needs in **Granja Santa Catarina**. Forecasted precipitation data is compared with actual measurements from a local weather station.
+
+After transformation and analysis, the final dataset is exported to **Amazon S3 in Parquet format**, a cost-effective and high-performance storage solution. This allows the app to access the most recent processed data directly from S3, ensuring quick loading times while reducing costs and minimizing load on Snowflake resources.
 
 ___
 ### What I'm Working On:
