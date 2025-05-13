@@ -1,12 +1,23 @@
 with 
 final_table as(
     SELECT
-        forecast_gsc.*,
+        COALESCE(forecast_gsc.forecast_date, station.data) as DATE,
+        forecast_gsc.prev_d1,
+        forecast_gsc.prev_d2,
+        forecast_gsc.prev_d3,
+        forecast_gsc.prev_d4,
+        forecast_gsc.prev_d5,
+        forecast_gsc.prev_d6,
+        forecast_gsc.prev_d7,
+        forecast_gsc.prev_d8,
+        forecast_gsc.prev_d9,
         station.precipitacao
     FROM {{ref('int__gsc')}} forecast_gsc
-    LEFT JOIN {{ref('stg_station__real')}} station
+    FULL OUTER JOIN {{ref('stg_station__real')}} station
         ON station.data=forecast_gsc.forecast_date
-    ORDER BY
-        forecast_date ASC
+    
     )
-SELECT * FROM final_table
+SELECT * 
+FROM final_table 
+ORDER BY
+    DATE ASC

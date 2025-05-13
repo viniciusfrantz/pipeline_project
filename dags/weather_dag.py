@@ -3,6 +3,7 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook 
 
+
 from datetime import datetime, timedelta
 from cosmos import DbtTaskGroup, ProfileConfig, ExecutionConfig, ProjectConfig
 from cosmos.profiles import SnowflakeUserPasswordProfileMapping
@@ -60,6 +61,16 @@ with DAG(
         snowflake_conn_id='snowflake_conn'
     )
 
+
+    # Define task to run dbt seed
+    #dbt_seed_task = DbtSeedOperator(
+    #   task_id="dbt_seed",
+    #    project_dir=dbt_snowflake_project_path,
+    #    profile_config=profile_config_dbt,
+    #    execution_config=venv_execution_config,
+    #   operator_args={"install_deps": True},
+#)
+
     # Defined inside the DAG to avoid import timeout issues during DAG parsing.
     profile_config_dbt = ProfileConfig(
     profile_name="default",
@@ -87,14 +98,13 @@ with DAG(
     task_id='export_results_forecast_to_s3',
     sql="""
         COPY INTO @my_s3_stage/results_forecast_export
-        FROM DBT_AIRFLOW_DB.DBT_SCHEMA.RESULTS_FORECAST
+        FROM DBT_AIRFLOW_DB.DBT_SCHEMA_MARTS.RESULTS_FORECAST
         FILE_FORMAT = (TYPE = 'PARQUET')
+        SINGLE = TRUE
         HEADER = TRUE
         OVERWRITE = TRUE;
     """,
     snowflake_conn_id='snowflake_conn',
 )
 
-
     get_weather_data_task >> [normalize_csv_task, copy_into_task] >> dbt_task_group >> export_results_to_s3_task
-    

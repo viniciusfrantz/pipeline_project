@@ -1,4 +1,5 @@
 import streamlit as st
+import altair as alt
 import pandas as pd
 import boto3
 import io
@@ -29,13 +30,13 @@ def load_data_from_s3(bucket_name, object_key):
 
 # S3 bucket and file
 bucket_name = 'vinicius-airflow'
-object_key = 'weather_forecast/results_forecast_export_0_0_0.snappy.parquet'
+object_key = 'weather_forecast/results_forecast_export'
 
 # Load and prepare data
 df = load_data_from_s3(bucket_name, object_key)
 
 df = df.reset_index(drop=True)
-df['FORECAST_DATE'] = pd.to_datetime(df['FORECAST_DATE']).dt.date
+df['DATE'] = pd.to_datetime(df['DATE']).dt.date
 
 # Get today's date
 today = datetime.date.today()
@@ -59,7 +60,7 @@ def format_float_columns(df):
 # Display data based on selected view
 if data_view == "Previsão do Tempo":
     # Filter data to only show future dates and hide the precipitation column
-    future_data = df[df['FORECAST_DATE'] >= today].drop(columns=['PRECIPITACAO'])
+    future_data = df[df['DATE'] >= today].drop(columns=['PRECIPITACAO'])
     
     # Show the forecast data
     st.title("Previsão do tempo - Granja Santa Catarina (Próximos Dias)")
@@ -67,10 +68,10 @@ if data_view == "Previsão do Tempo":
 
 elif data_view == "Dados Históricos":
     # Filter data to show past dates and include all columns
-    historical_data = df[df['FORECAST_DATE'] < today]
-    historical_data['FORECAST_DATE'] = pd.to_datetime(historical_data['FORECAST_DATE'], errors='coerce')
-    historical_data['DIA_PREVISTO'] = historical_data['FORECAST_DATE'].dt.strftime('%d-%m-%Y')
-    historical_data.drop(columns=['FORECAST_DATE'], inplace=True)
+    historical_data = df[df['DATE'] < today]
+    historical_data['DATE'] = pd.to_datetime(historical_data['DATE'], errors='coerce')
+    historical_data['DIA_PREVISTO'] = historical_data['DATE'].dt.strftime('%d-%m-%Y')
+    historical_data.drop(columns=['DATE'], inplace=True)
     columns = ['DIA_PREVISTO'] + [col for col in historical_data.columns if col != 'DIA_PREVISTO']
     historical_data = historical_data[columns]
     
@@ -89,15 +90,49 @@ elif data_view == "Dados Históricos":
     )
 
     df_mensal = df.copy()
-    df_mensal['FORECAST_DATE'] = pd.to_datetime(df_mensal['FORECAST_DATE'])
-    df_mensal['ano'] = df_mensal['FORECAST_DATE'].dt.year
-    df_mensal['mes'] = df_mensal['FORECAST_DATE'].dt.month
+    df_mensal['DATE'] = pd.to_datetime(df_mensal['DATE'])
+    df_mensal['ano'] = df_mensal['DATE'].dt.year
+    df_mensal['mes'] = df_mensal['DATE'].dt.month
     df_agg_prec_mensal = (
         df_mensal
         .groupby(['ano', 'mes'])['PRECIPITACAO']
         .sum()
         .reset_index()
     )
-    st.title("Precipitação acumulada por mês")
-    st.dataframe(df_agg_prec_mensal, hide_index=True)
 
+    df_agg_prec_mensal['mes_ano'] = df_agg_prec_mensal['mes'].astype(str).str.zfill(2) + '/' + df_agg_prec_mensal['ano'].astype(str)
+
+    # Ordena por ano e mês
+    df_agg_prec_mensal = df_agg_prec_mensal.sort_values(by=['ano', 'mes'])
+
+    # Limites do eixo Y
+    y_max = df_agg_prec_mensal['PRECIPITACAO'].max() + 20
+
+    bars = alt.Chart(df_agg_prec_mensal).mark_bar(color='steelblue').encode(
+        x=alt.X('mes_ano:N', title='Mês/Ano', sort=None),
+        y=alt.Y('PRECIPITACAO:Q', title='Precipitação acumulada (mm)', scale=alt.Scale(domain=[0, y_max]))
+    )
+
+    # Rótulos acima das barras
+    labels = alt.Chart(df_agg_prec_mensal).mark_text(
+        align='center',
+        baseline='bottom',
+        dy=-2,  # distância do topo da barra
+        fontSize=16,
+        color='blue'
+    ).encode(
+        x='mes_ano:N',
+        y='PRECIPITACAO:Q',
+        text=alt.Text('PRECIPITACAO:Q', format='.1f')
+    )
+
+    # Combina os dois gráficos
+    chart = (bars + labels).properties(
+        width=700,
+        height=400,
+        title='Precipitação Acumulada por Mês'
+    )
+
+    # Exibe no Streamlit
+    st.title("Precipitação acumulada por mês (mm) Granja Santa Catarina")
+    st.altair_chart(chart, use_container_width=True)
