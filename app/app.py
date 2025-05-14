@@ -14,7 +14,7 @@ load_dotenv()
 st.set_page_config(page_title="Weather Dashboard", layout="wide")
 
 # Load data from S3
-@st.cache_data
+@st.cache_data(ttl=300)
 def load_data_from_s3(bucket_name, object_key):
     s3 = boto3.client(
         's3',
@@ -36,6 +36,11 @@ object_key = 'weather_forecast/results_forecast_export'
 df = load_data_from_s3(bucket_name, object_key)
 
 df = df.reset_index(drop=True)
+
+df['LAST_UPDATED_DATE'] = pd.to_datetime(df['LAST_UPDATED_DATE'], errors='coerce')
+last_update = df['LAST_UPDATED_DATE'].max()
+
+df = df.iloc[:, 1:]
 df['DATE'] = pd.to_datetime(df['DATE']).dt.date
 
 # Get today's date
@@ -44,6 +49,8 @@ today = datetime.date.today()
 # Sidebar - Select data view (forecast or historical)
 
 data_view = st.sidebar.selectbox("Selecione o tipo de informação desejada", ["Previsão do Tempo", "Dados Históricos"])
+
+st.sidebar.markdown(f"**Última atualização:** {last_update.strftime('%d/%m/%Y')}")
 
 # Function to highlight precipitation
 def highlight_precipitation(row):

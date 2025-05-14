@@ -1,7 +1,9 @@
 with 
 final_table as(
     SELECT
+        last_updated_date,
         COALESCE(forecast_gsc.forecast_date, station.data) as DATE,
+        forecast_gsc.prev_d0,
         forecast_gsc.prev_d1,
         forecast_gsc.prev_d2,
         forecast_gsc.prev_d3,

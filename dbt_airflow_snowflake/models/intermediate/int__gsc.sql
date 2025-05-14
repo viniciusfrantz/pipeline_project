@@ -36,6 +36,7 @@ final AS(
 
 pivoted AS (
     SELECT
+        MAX(updated_date) AS last_updated_date,
         forecast_date,
         MAX(CASE WHEN days_diff = 0 THEN daily_precipitation_forecast END) AS prev_d0,
         MAX(CASE WHEN days_diff = 1 THEN daily_precipitation_forecast END) AS prev_d1,
