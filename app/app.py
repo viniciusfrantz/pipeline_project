@@ -48,7 +48,7 @@ today = datetime.date.today()
 
 # Sidebar - Select data view (forecast or historical)
 
-data_view = st.sidebar.selectbox("Selecione o tipo de informação desejada", ["Previsão do Tempo", "Dados Históricos"])
+data_view = st.sidebar.selectbox("Selecione o tipo de informação desejada:", ["Previsão do Tempo", "Dados Históricos"])
 
 st.sidebar.markdown(f"**Última atualização:** {last_update.strftime('%d/%m/%Y')}")
 
