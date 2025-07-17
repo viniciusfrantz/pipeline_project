@@ -2,7 +2,7 @@ with
 final_table as(
     SELECT
         last_updated_date,
-        COALESCE(forecast_gsc.forecast_date, station.data) as DATE,
+        CAST(COALESCE(forecast_gsc.forecast_date, station.data) AS DATE) AS forecast_date,
         forecast_gsc.prev_d0,
         forecast_gsc.prev_d1,
         forecast_gsc.prev_d2,
@@ -17,9 +17,9 @@ final_table as(
     FROM {{ref('int__gsc')}} forecast_gsc
     FULL OUTER JOIN {{ref('stg_station__real')}} station
         ON station.data=forecast_gsc.forecast_date
-    
     )
 SELECT * 
 FROM final_table 
 ORDER BY
-    DATE ASC
+    forecast_date ASC
+

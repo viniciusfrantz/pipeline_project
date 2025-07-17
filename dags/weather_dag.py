@@ -11,6 +11,7 @@ from cosmos.profiles import SnowflakeUserPasswordProfileMapping
 from include.constants import dbt_snowflake_project_path, venv_execution_config
 from include.weather_utils import get_weather_data, normalize_csv
 
+from plugins.email_callbacks import dag_success_callback, dag_failure_callback 
 
 default_args = {
     'owner': 'airflow',
@@ -27,7 +28,7 @@ with DAG(
     schedule = '0 11 * * *',
     catchup=False,
     tags=['weather', 's3'],
-    description="get weather data and save in S3 bucket, then run dbt models"
+    description="get weather data and save in S3 bucket, then run dbt models",
     ) as dag:
 
 
@@ -37,10 +38,13 @@ with DAG(
         object_key = 'weather_forecast/weather_combined_Granja_Santa_Catarina.csv'  # File Name (S3)
         get_weather_data(s3_hook, bucket_name, object_key)
 
+    def task_success_callback(context):
+        print("Task success callback executed!")
 
     get_weather_data_task = PythonOperator(
         task_id='load_weather_data',
         python_callable=load_weather_data,
+        on_success_callback=task_success_callback,
         retries=2,
         retry_delay=timedelta(seconds=10)
     )
@@ -106,5 +110,10 @@ with DAG(
     """,
     snowflake_conn_id='snowflake_conn',
 )
+    
+    success_email = PythonOperator(
+        task_id='send_success_email',
+        python_callable=dag_success_callback,
+    )
 
-    get_weather_data_task >> [normalize_csv_task, copy_into_task] >> dbt_task_group >> export_results_to_s3_task
+    get_weather_data_task >> [normalize_csv_task, copy_into_task] >> dbt_task_group >> export_results_to_s3_task >> success_email
