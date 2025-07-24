@@ -41,7 +41,7 @@ df['LAST_UPDATED_DATE'] = pd.to_datetime(df['LAST_UPDATED_DATE'], errors='coerce
 last_update = df['LAST_UPDATED_DATE'].max()
 
 df = df.iloc[:, 1:]
-df['DATE'] = pd.to_datetime(df['forecast_date']).dt.date
+df['DATE'] = pd.to_datetime(df['FORECAST_DATE']).dt.date
 
 # Get today's date
 today = datetime.date.today()
